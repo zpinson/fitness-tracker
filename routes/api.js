@@ -13,6 +13,17 @@ router.post("/api/workout", ({ body }, res) => {
 
 //GETTING WORKOUT BY ID
 
+router.get("/api/workout", ({ body }, res) => {
+  Workout.findById(body.id)
+    .then(() => {
+      return res.json(true);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
+
+
 // LOOK UP .agregate for mongoose
 
 
