@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const express = require("express");
-const { Console } = require("console");
+// const { Console } = require("console");
 
 const PORT = 3000;
 
@@ -15,7 +15,7 @@ app.use(express.static("public"));
 
 // bring mongoose.connect
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
