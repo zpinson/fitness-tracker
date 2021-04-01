@@ -38,6 +38,25 @@ router.get("/api/workouts/", ({ body }, res) => {
 
 // LOOK UP .agregate for mongoose
 
+router.get('/api/workouts/', function (req, res) {
+  Workout.aggregate([
+    {$match: {}},
+      { 
+          $group: { 
+              _id: "$weight",
+              total: { $sum: 1 }
+          }
+      }
+  ], 
+  // function (err, bears) {
+  //     console.log(err, bears);
+  //     // remap the results
+  //     var viewcounts = bears.map(function (bear) {
+  //         // using ES6 to compute property name
+  //         return { [bear._id]: bear.viewcount };
+  //     });
+  //     console.log(viewcounts);
+  )});
 
 
 
