@@ -15,10 +15,15 @@ app.use(express.static("public"));
 
 // bring mongoose.connect
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
-  useNewUrlParser: true,
-  useFindAndModify: false
-});
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost/fitness',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+);
 //declare you routes
 app.use(require("./routes/api.js"));
 //declare you api routes
